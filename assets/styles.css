@@ -1,0 +1,33 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#search-input {
+    width: 70%;
+    padding: 10px;
+    font-size: 20px;
+}
+
+#search-button {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+#search-results {
+    text-align: left;
+    margin-top: 20px;
+}
