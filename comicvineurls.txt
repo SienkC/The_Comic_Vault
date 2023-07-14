@@ -1,0 +1,34 @@
+API Key: 871377ac063cfca6e414991a01d6b3fdfce67591
+
+For Searching Movie/TVshow{
+
+    Search for movie titles: 
+        "https://comicvine.gamespot.com/api/movies/?api_key=871377ac063cfca6e414991a01d6b3fdfce67591&format=json&filter=name:" + MOVIE_NAME 
+        ^get api_detail_url for each character
+
+    Search for TV show: 
+        "https://comicvine.gamespot.com/api/series_list/?api_key=871377ac063cfca6e414991a01d6b3fdfce67591&format=json&filter=name:" + SHOW_NAME 
+        ^get api_detail_url for each character
+
+    Get 1st issue character appeared in: 
+        GET_api_detail_url_FROM_MOVIE/SHOW_SEARCH_RESULT + "?api_key=871377ac063cfca6e414991a01d6b3fdfce67591&format=json&field_list=first_appeared_in_issue" 
+        ^cut off end of api_detail_url after 5th "/" to get issue id
+
+    Get more details on issue (including picture): 
+        "https://comicvine.gamespot.com/api/issue/" + ID_FROM_CHAR_SEARCH + "/?api_key=871377ac063cfca6e414991a01d6b3fdfce67591&format=json"
+        ^to show images of issues
+}
+
+For Searching Characters {
+
+    Search for Characters: 
+        "https://comicvine.gamespot.com/api/characters/?api_key=871377ac063cfca6e414991a01d6b3fdfce67591&format=json&filter=name:" + CHARNAME
+
+    Get issues character appeared in: 
+        GET_api_detail_url_FROM_CHAR_SEARCH + "?api_key=871377ac063cfca6e414991a01d6b3fdfce67591&format=json&field_list=first_appeared_in_issue,issue_credits" 
+        ^cut off end of api_detail_url after 5th "/" to get id for each issue
+
+    Get more details on issue (including picture): 
+        "https://comicvine.gamespot.com/api/issue/" + ID_FROM_CHAR_SEARCH + "/?api_key=871377ac063cfca6e414991a01d6b3fdfce67591&format=json"
+        ^to show images of issues
+}
