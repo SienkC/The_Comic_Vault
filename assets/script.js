@@ -28,6 +28,7 @@ const data = [
     }
   }
 
+  // TODO: move to results page
   function movieShowDisplay(url){
     fetch(url).then(function (response) {
       // test
@@ -40,8 +41,16 @@ const data = [
               // Clear results
               searchResults.innerHTML = '';
 
-              // loop through all results
-              for(let i = 0; i < movieShowDetails.results.length; i++) {
+              // limit number of buttons to at most 10
+              var tempLength = 10;
+
+              // if there are less than 10 results, save how many
+              if (movieShowDetails.results.length < 10){
+                tempLength = movieShowDetails.results.length;
+              }
+
+              // loop through 10 (or less) results
+              for(let i = 0; i < tempLength; i++) {
                 var resultItem = document.createElement('button');
                 resultItem.textContent = movieShowDetails.results[i].name;
                 var image = document.createElement('img');
