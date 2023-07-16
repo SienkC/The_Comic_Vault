@@ -13,7 +13,17 @@ const data = [
   
   // Function to perform search
   function performSearch() {
-    const searchTerm = searchInput.value.toLowerCase();
+    // make input text lowercase and remove any spaces surrounding it
+    const searchTerm = searchInput.value.toLowerCase().trim();
+
+    // Checks if search is not blank
+    if(searchTerm){
+      // test
+      console.log(searchTerm);
+
+      
+    }
+
     const filteredData = data.filter(item => {
       const title = item.title.toLowerCase();
       return title.includes(searchTerm);
