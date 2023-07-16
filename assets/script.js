@@ -12,37 +12,6 @@ const data = [
   const searchResults = document.getElementById('search-results');
   const mediaType = document.getElementById('media-type');
   
-  // Function to perform search
-  function performSearch() {
-    // make input text lowercase and remove any spaces surrounding it
-    const searchTerm = searchInput.value.toLowerCase().trim();
-
-    // Checks if search is not blank
-    if(searchTerm){
-      // test
-      console.log(searchTerm);
-
-      // seach for movie or tv show
-      if(mediaType.value == "movies" || mediaType.value == "series_list"){
-        var mediaSearchUrl = "https://comicvine.gamespot.com/api/" + mediaType.value + "/?api_key=871377ac063cfca6e414991a01d6b3fdfce67591&format=json&filter=name:" + searchTerm;
-
-        // test
-        console.log(mediaSearchUrl);
-      }
-      // search for character
-      else {
-        // TODO: Add character search
-      }
-    }
-
-    const filteredData = data.filter(item => {
-      const title = item.title.toLowerCase();
-      return title.includes(searchTerm);
-    });
-  
-    // displayResults(filteredData);
-  }
-  
   // Function to display search results
   function displayResults(results) {
     searchResults.innerHTML = '';
@@ -58,7 +27,68 @@ const data = [
       searchResults.appendChild(noResults);
     }
   }
+
+  function movieShowDisplay(url){
+    fetch(url).then(function (response) {
+      // test
+      console.log(response);
+      if (response.ok) {
+          response.json().then(function (movieShowDetails) {
+              // test
+              console.log(movieShowDetails);
+
+              // Clear results
+              searchResults.innerHTML = '';
+
+              // loop through all results
+              for(let i = 0; i < movieShowDetails.results.length; i++) {
+                var resultItem = document.createElement('button');
+                resultItem.textContent = movieShowDetails.results[i].name;
+                var image = document.createElement('img');
+                image.setAttribute('src', movieShowDetails.results[i].image.original_url);
+                resultItem.appendChild(image);
+                searchResults.appendChild(resultItem);
+              }
+          })
+      }
+      else {
+          alert("Error: " + response.statusText);
+      }
+  })
+  }
   
   // Event listener for search button click
-  searchButton.addEventListener('click', performSearch);
+  // searchButton.addEventListener('click', performSearch);
+  searchButton.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    // make input text lowercase and remove any spaces surrounding it
+    const searchTerm = searchInput.value.toLowerCase().trim();
+
+    // Checks if search is not blank
+    if(searchTerm){
+      // test
+      console.log(searchTerm);
+
+      // seach for movie or tv show
+      if(mediaType.value == "movies" || mediaType.value == "series_list"){
+        var mediaSearchUrl = "https://floating-headland-95050.herokuapp.com/https://comicvine.gamespot.com/api/" + mediaType.value + "/?api_key=871377ac063cfca6e414991a01d6b3fdfce67591&format=json&filter=name:" + searchTerm;
+
+        // test
+        console.log(mediaSearchUrl);
+
+        movieShowDisplay(mediaSearchUrl);
+      }
+      // search for character
+      else {
+        // TODO: Add character search
+      }
+    }
+
+    const filteredData = data.filter(item => {
+      const title = item.title.toLowerCase();
+      return title.includes(searchTerm);
+    });
   
+    // displayResults(filteredData);
+  })
