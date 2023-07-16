@@ -10,6 +10,9 @@ For Searching Movie/TVshow{
         "https://floating-headland-95050.herokuapp.com/https://comicvine.gamespot.com/api/series_list/?api_key=871377ac063cfca6e414991a01d6b3fdfce67591&format=json&filter=name:" + SHOW_NAME 
         ^get api_detail_url for each character
 
+    Specific movie/tv show:
+        "https://floating-headland-95050.herokuapp.com/" + MOVIE_URL + "?api_key=871377ac063cfca6e414991a01d6b3fdfce67591&format=json"
+
     Get 1st issue character appeared in: 
         "https://floating-headland-95050.herokuapp.com/" + GET_api_detail_url_FROM_MOVIE/SHOW_SEARCH_RESULT + "?api_key=871377ac063cfca6e414991a01d6b3fdfce67591&format=json&field_list=first_appeared_in_issue" 
         ^cut off end of api_detail_url after 5th "/" to get issue id

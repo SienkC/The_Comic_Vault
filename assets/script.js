@@ -51,12 +51,23 @@ const data = [
 
               // loop through 10 (or less) results
               for(let i = 0; i < tempLength; i++) {
+                // create button for each movie/show
                 var resultItem = document.createElement('button');
                 resultItem.textContent = movieShowDetails.results[i].name;
+
+                // add image of each movie/show
                 var image = document.createElement('img');
                 image.setAttribute('src', movieShowDetails.results[i].image.original_url);
                 resultItem.appendChild(image);
                 searchResults.appendChild(resultItem);
+              }
+
+              // Adds button functionality to each movie button
+              for(let i = 0; i < searchResults.children.length; i++) {
+                (function (){
+                  searchResults.children[i].addEventListener('click', function() {getMovie(movieShowDetails.results[i].api_detail_url);}, false);
+                }())
+                
               }
           })
       }
@@ -64,6 +75,15 @@ const data = [
           alert("Error: " + response.statusText);
       }
   })
+  }
+
+  function getMovie(startUrl) {
+    var url = "https://floating-headland-95050.herokuapp.com/" + startUrl + "?api_key=871377ac063cfca6e414991a01d6b3fdfce67591&format=json";
+
+    // test
+    console.log(url);
+
+    
   }
   
   // Event listener for search button click
