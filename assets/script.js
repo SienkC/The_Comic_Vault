@@ -10,6 +10,7 @@ const data = [
   const searchInput = document.getElementById('search-input');
   const searchButton = document.getElementById('search-button');
   const searchResults = document.getElementById('search-results');
+  const mediaType = document.getElementById('media-type');
   
   // Function to perform search
   function performSearch() {
@@ -21,7 +22,17 @@ const data = [
       // test
       console.log(searchTerm);
 
-      
+      // seach for movie or tv show
+      if(mediaType.value == "movies" || mediaType.value == "series_list"){
+        var mediaSearchUrl = "https://comicvine.gamespot.com/api/" + mediaType.value + "/?api_key=871377ac063cfca6e414991a01d6b3fdfce67591&format=json&filter=name:" + searchTerm;
+
+        // test
+        console.log(mediaSearchUrl);
+      }
+      // search for character
+      else {
+        // TODO: Add character search
+      }
     }
 
     const filteredData = data.filter(item => {
@@ -29,7 +40,7 @@ const data = [
       return title.includes(searchTerm);
     });
   
-    displayResults(filteredData);
+    // displayResults(filteredData);
   }
   
   // Function to display search results
