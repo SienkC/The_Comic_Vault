@@ -9,10 +9,15 @@
 <body>
     <div class="container">
         <h1>Comic Book and Movies Search</h1>
-        <div class="search-container">
+        <form class="search-container">
+            <select id="media-type">
+                <option value="movies">Movie</option>
+                <option value="series_list">TV Show</option>
+                <option value="char">Character</option>
+            </select>
             <input type="text" id="search-input" placeholder="Search..." />
             <button id="search-button">Search</button>
-        </div>
+        </form>
         <div id="search-results">
             <!-- Search results will be displayed here -->
         </div>
