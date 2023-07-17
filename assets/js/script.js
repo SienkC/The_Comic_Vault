@@ -55,3 +55,32 @@ searchButton.addEventListener('click', function(event) {
     }
   }
 })
+
+var images = [
+  'batman-1.jpg', 
+  'spiderman-1.jpg', 
+  'superman-1.jpeg', 
+  'the-dc-gang.jpg',
+  'thor-1.jpg',
+  ];
+  
+  $(function () {
+    var i = 0;
+    
+    $('.bg-image').css('background-image', 'url(./assets/images/' + images[i] + ')', 
+    'background-size', 'cover');
+    setInterval (function () {
+      i++;
+      if (i == images.length) {
+        i = 0;
+      }
+      $('.bg-image').fadeOut('slow', function (){
+      $(this).css('background-image', 'url(./assets/images/' + images[i] + ')',
+      'background-size', 'cover');
+      $(this).fadeIn('slow');
+      });
+    }, 5000);
+  
+      });
+  
+  

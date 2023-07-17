@@ -3,27 +3,59 @@
 
 <head>
     <title>Comic Book and Movies Search</title>
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Roboto:ital@1&family=Rock+Salt&display=swap" 
+    rel="stylesheet">
+<!-- bulma -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
 </head>
 
 <body>
-    <div class="container">
-        <h1>Comic Book and Movies Search</h1>
-        <form class="search-container">
-            <select id="media-type">
-                <option value="movies">Movie</option>
-                <option value="series_list">TV Show</option>
-                <option value="char">Character</option>
-            </select>
-            <input type="text" id="search-input" placeholder="Search..." />
-            <button id="search-button">Search</button>
-        </form>
-        <div id="search-results">
-            <!-- Search results will be displayed here -->
+    <div class="wrapper"> <!--allows window to collapse and expand and keep image in correct view-->
+      <div class="bg-image"></div>
+        <div class="container-header has-text-left">
+            <button id="favorites-button">Favorites</button>
         </div>
+        <section class="hero is-fullheight">  
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                <!-- <div class="level-item has-text-centered"> -->
+            <!-- <div class="bubble"> -->
+                <!-- <h1>Comic Book and Movies Search</h1> -->
+            <!-- </div> -->
+                <!-- </div> -->
+                    <div class="level-item has-text-centered">
+                    <!-- <div class="bubble"> -->
+                        <form class="search-container">
+                            <select id="media-type">
+                                <option value="movies">Movie</option>
+                                <option value="series_list">TV Show</option>
+                                <option value="char">Character</option>
+                            </select>
+                            <input type="text" id="search-input" placeholder="Search..." />
+                            <button id="search-button">Search!</button>
+                        </form>
+                    </div>
+                <!-- </div> -->
+                </div>
+            <div id="search-results">
+            <!-- Search results will be displayed here -->
+            </div>
+            </div>
+        </div>
+        </section>
     </div>
+    <!-- jQuery -->
+    <script
+  src="https://code.jquery.com/jquery-3.7.0.min.js"
+  integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+  crossorigin="anonymous"></script>
 
     <script src="./assets/js/script.js"></script>
+</div>
 </body>
 
+</div>
 </html>
