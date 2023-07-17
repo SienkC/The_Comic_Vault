@@ -83,7 +83,54 @@ const data = [
     // test
     console.log(url);
 
-    
+    fetch(url).then(function (response) {
+      if(response.ok) {
+        response.json().then(function (movieResults) {
+          // Clear results
+          searchResults.innerHTML = '';
+
+          // limit number of buttons to at most 10
+          var tempLength = 10;
+
+          // if there are less than 10 results, save how many
+          if (movieResults.results.characters.length < 10){
+            tempLength = movieResults.results.characters.length;
+          }
+
+          for(let i = 0; i < tempLength; i++) {
+            var charUrl = "https://floating-headland-95050.herokuapp.com/" + movieResults.results.characters[i].api_detail_url + "?api_key=871377ac063cfca6e414991a01d6b3fdfce67591&format=json&field_list=first_appeared_in_issue,name";
+
+            // test
+            console.log(charUrl);
+
+            fetch(charUrl).then(function (response) {
+              if(response.ok) {
+                response.json().then(function (charResults) {
+                  // grab id number from url in api results for first issue
+                  var issueId = charResults.results.first_appeared_in_issue.api_detail_url.split('issue')[1];
+                  var issueUrl = "https://floating-headland-95050.herokuapp.com/https://comicvine.gamespot.com/api/issue" + issueId + "?api_key=871377ac063cfca6e414991a01d6b3fdfce67591&format=json"
+
+                  // test
+                  console.log(issueUrl);
+
+                  var issueItem = document.createElement('button');
+                  issueItem.textContent = "First appearance of " + charResults.results.name;
+
+                  fetch(issueUrl).then(function (response) {
+                    if(response.ok) {
+                      response.json().then(function (issueResults) {
+                        var issueImage = document.createElement('img');
+                        issueImage.setAttribute('src', issueResults.results.image.original_url);
+                        issueItem.appendChild(issueImage);
+                        searchResults.appendChild(issueItem);
+                      })
+                    }
+                  })
+                })}
+          })
+        }})
+      }
+    })
   }
   
   // Event listener for search button click
