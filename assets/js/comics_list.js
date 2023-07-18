@@ -69,6 +69,28 @@ fetch(url).then(function (response) {
                                     issueItem.appendChild(issueImage);
                                     searchResults.appendChild(issueItem);
 
+                                    issueItem.addEventListener('click', function() {
+                                        // add info needed to Google Books API function
+                                        var passToNextPage = [issueResults.results.volume.name, issueResults.results.issue_number];
+                                        localStorage.setItem('comicDets',JSON.stringify(passToNextPage));
+
+                                        // go to books page
+                                        location.replace('GooglebooksAPI.html');
+                                    })
+
+            //                         // Adds button functionality to each movie button
+            // for(let i = 0; i < searchResults.children.length; i++) {
+            //     (function (){
+            //         searchResults.children[i].addEventListener('click', function() {
+            //             localStorage.setItem("tempUrl", movieShowDetails.results[i].api_detail_url);
+
+            //             location.replace('comics_list.html');
+            //             // getMovieIssues(movieShowDetails.results[i].api_detail_url);
+            //         }, false);
+            //     }())
+            
+            // }
+
                                     // check ls to see if any comics are currently faved and update checkbox
                                     if(favedComics != null) {
                                         if(favedComics.includes(issueResults.results.image.original_url)) {

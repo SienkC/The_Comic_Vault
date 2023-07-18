@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google Books API Example</title>
+  <style>
+    .result-box {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .result-item {
+      width: 300px;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .result-item img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+  
+</head>
+<body>
+  <header>
+    <a href="./index.html">
+        <button>Go Back to Search</button>
+    </a>
+  </header>
+  <!-- commented out search bar -->
+  <!-- <input type="text" id="searchInput" placeholder="Enter a book or magazine name">
+  <button onclick="searchBooks()">Search</button> -->
+  <div id="resultsContainer" class="result-box">
+    Results may take a few seconds to load...
+  </div>
+
+  <script src="./assets/js/GooglebooksAPI.js"></script>
+</body>
+</html>
