@@ -1,16 +1,13 @@
-// function searchBooks() {
-//     const searchInput = document.getElementById('searchInput').value;
-
 // get info from ls
 const comicDets = JSON.parse(localStorage.getItem('comicDets'));
+const favsList = JSON.parse(localStorage.getItem('favorites'));
+
 const searchInput = comicDets[0] + "#" + comicDets[1];
 const resultsContainer = document.getElementById('resultsContainer');
 const searchedItem = document.getElementById('title');
 resultsContainer.innerHTML = ''; // Clear previous results
 
-// const searchedItem = document.createElement('h1');
 searchedItem.textContent = "Showing results for " + comicDets[0] + "#" + comicDets[1];
-// resultsContainer.appendChild(searchedItem);
   
 fetch(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(searchInput)}`)
   .then(response => response.json())
@@ -48,6 +45,12 @@ fetch(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(search
           var favs = document.getElementsByClassName('favorite');
           favs[i].setAttribute('id', 'fav' + i);
           favs[i].setAttribute('onclick', 'saveFav(' + i +')');
+
+          if(favsList != null) {
+            if(favsList.includes(resultsContainer.children[i].innerHTML)) {
+              favs[i].checked = true;
+            }
+          }
         }
       } else {
         resultsContainer.innerHTML = 'No results found.';
