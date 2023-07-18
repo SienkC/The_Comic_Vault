@@ -42,12 +42,21 @@ fetch(url).then(function (response) {
             for(let i = 0; i < tempLength; i++) {
                 // create button for each movie/show
                 var resultItem = document.createElement('button');
+                resultItem.className = "page-button";
                 resultItem.textContent = movieShowDetails.results[i].name;
 
                 // add image of each movie/show
                 var image = document.createElement('img');
+                image.className = 'the-img';
+                // image.className = 'result-content';
                 image.setAttribute('src', movieShowDetails.results[i].image.original_url);
-                resultItem.appendChild(image);
+                
+                var resultEl = document.createElement('div');
+                resultEl.className = 'result-content';
+                //resultEl.innerHTML = "<p><h2 class= movie-title>" + movieShowDetails.results[i].name + "</p></h1>";
+
+                resultEl.appendChild(image);
+                resultItem.appendChild(resultEl);
                 searchResults.appendChild(resultItem);
             }
 
