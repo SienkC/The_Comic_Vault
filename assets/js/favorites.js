@@ -2,16 +2,6 @@ const favResults = document.getElementById('fav-results');
 var favoritesList = JSON.parse(localStorage.getItem("favorites"));
 var visited = JSON.parse(localStorage.getItem("visitedFavs"));
 
-// if user has never been to this page, intro will run
-if(visited === null) {
-    // save that they've been here in local storage
-    localStorage.setItem("visitedFavs", JSON.stringify(true));
-
-    // run intro.js
-    introJs().start();
-}
-
-
 // check if local storage is not empty
 if(favoritesList != null) {
     // Clear results
@@ -33,6 +23,8 @@ if(favoritesList != null) {
         favorite.checked = true;
     }
 
+    favResults.children[0].setAttribute('data-intro', 'This is how comics will look when they are saved to your favorites');
+    favResults.children[0].children[0].setAttribute('data-intro', 'Remove items from your list by clicking here, but be careful. If you change your mind, you will have to search for it again!');
 
 }
 else {
@@ -68,4 +60,13 @@ function saveFav(i){
         // remove from html
         currentIssue.remove();
     }
+}
+
+// if user has never been to this page, intro will run
+if(visited === null) {
+    // save that they've been here in local storage
+    localStorage.setItem("visitedFavs", JSON.stringify(true));
+
+    // run intro.js
+    introJs().start();
 }
