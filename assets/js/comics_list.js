@@ -59,7 +59,8 @@ fetch(url).then(function (response) {
                                     favorite.setAttribute('type', 'checkbox');
                                     favorite.setAttribute('class', 'favorite');
                                     favorite.setAttribute('data-img-url', issueResults.results.image.original_url)
-                                    favorite.setAttribute('onclick', 'saveFav()');
+                                    favorite.setAttribute('id', 'fav' + i);
+                                    favorite.setAttribute('onclick', 'saveFav(' + i +')');
                                     issueItem.appendChild(favorite);
 
                                     var issueImage = document.createElement('img');
@@ -68,53 +69,50 @@ fetch(url).then(function (response) {
                                     searchResults.appendChild(issueItem);
 })}})})}})}})}})
 
-function saveFav() {
-
-    // test
-    console.log("checked!");
-
+function saveFav(i) {
+    var checkbox = document.getElementById('fav' + i);
     var checkboxes = document.getElementsByClassName('favorite');
+    var favoritesList = JSON.parse(localStorage.getItem('favorites'));
+    var tempList = [];
 
-    for(let i = 0; i < checkboxes.length; i++) {
-        var favComic = [checkboxes[i].getAttribute('data-img-url')];
-        var favoritesList = JSON.parse(localStorage.getItem('favorites'));
+    if(checkbox.checked) {
+        // check if ls has items
+        if(favoritesList != null){
+            // check if not in ls
+            if(!(favoritesList.includes(checkbox.getAttribute('data-img-url')))) {
+                favoritesList.push(checkbox.getAttribute('data-img-url'));
+                localStorage.setItem('favorites', JSON.stringify(favoritesList));
+            }
+        }
+        // ls has no items
+        else {
+            tempList.push(checkbox.getAttribute('data-img-url'));
+            localStorage.setItem('favorites', JSON.stringify(tempList));
+        }
+        // check if others match and check all others too
+        for(let i = 0; i < checkboxes.length; i++) {
+            if(checkboxes[i].getAttribute('data-img-url') === checkbox.getAttribute('data-img-url')) {
+                checkboxes[i].checked = true;
+            }
+        }
+    }
 
-        // test
-        console.log(favComic);
-
-        if(checkboxes[i].checked) {
-            // check if local storage is not empty
-            if(favoritesList !== null) {
-                // check if issue is not already in favs
-                if(!(favoritesList.includes(checkboxes[i].getAttribute('data-img-url')))) {
-                    // add to local storage
-                    favoritesList = favoritesList.concat(favComic);
-                    
-                    // test
-                    console.log(favoritesList);
+    else {
+        if(favoritesList != null){
+            // check if in ls
+            if(favoritesList.includes(checkbox.getAttribute('data-img-url'))) {
+                var index = favoritesList.indexOf(checkbox.getAttribute('data-img-url'));
+                if(index > -1){
+                    favoritesList.splice(index, 1);
                     localStorage.setItem('favorites', JSON.stringify(favoritesList));
                 }
             }
-            //  if local storage is empty
-            else {
-                // create item in local storage to store favs
-                localStorage.setItem('favorites', JSON.stringify(favComic));
+            // check for others match and uncheck all others too
+            for(let i = 0; i < checkboxes.length; i++) {
+                if(checkboxes[i].getAttribute('data-img-url') === checkbox.getAttribute('data-img-url')) {
+                    checkboxes[i].checked = false;
+                }
             }
         }
-        else {
-            
-        }        
     }
-
-    
-
-    
-
-    // if(JSON.parse(localStorage.getItem("cities")) !== null){
-    //     cities = cities.concat(pastCities);
-    // }
-
-    // // add on new city info
-    // cities.push(saveCity);
-    // localStorage.setItem("cities", JSON.stringify(cities));
 }
