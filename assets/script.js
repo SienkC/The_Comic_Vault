@@ -10,6 +10,25 @@ const data = [
   const searchInput = document.getElementById('search-input');
   const searchButton = document.getElementById('search-button');
   const searchResults = document.getElementById('search-results');
+
+
+const url = 'https://superhero-search.p.rapidapi.com/api/?hero=Spiderman';
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '4ab2c2ac3bmshf6224c065a76c21p120aecjsn75d6c473154d',
+		'X-RapidAPI-Host': 'superhero-search.p.rapidapi.com'
+	}
+};
+console.log(url, options);
+try {
+	const response = await fetch(url, options);
+	const result = await response.text();
+	console.log(result);
+} catch (error) {
+	console.error(error);
+}
+
   
   // Function to perform search
   function performSearch() {

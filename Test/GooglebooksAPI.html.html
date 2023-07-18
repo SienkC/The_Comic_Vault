@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google Books API Example</title>
+  <style>
+    .result-box {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .result-item {
+      width: 300px;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .result-item img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+  <script src="script.js"></script>
+</head>
+<body>
+  <input type="text" id="searchInput" placeholder="Enter a book or magazine name">
+  <button onclick="searchBooks()">Search</button>
+  <div id="resultsContainer" class="result-box"></div>
+</body>
+</html>
