@@ -4,6 +4,7 @@ const directions = document.getElementById('directions');
 const searchName = document.getElementById('search-name');
 
 var startUrl = localStorage.getItem('tempUrl');
+var favedComics = JSON.parse(localStorage.getItem('favorites'));
 
 var url = "https://floating-headland-95050.herokuapp.com/" + startUrl + "?api_key=871377ac063cfca6e414991a01d6b3fdfce67591&format=json";
 
@@ -57,6 +58,14 @@ fetch(url).then(function (response) {
                         fetch(issueUrl).then(function (response) {
                             if(response.ok) {
                                 response.json().then(function (issueResults) {
+                                    var favorite = document.createElement('input');
+                                    favorite.setAttribute('type', 'checkbox');
+                                    favorite.setAttribute('class', 'favorite');
+                                    favorite.setAttribute('data-img-url', issueResults.results.image.original_url)
+                                    favorite.setAttribute('id', 'fav' + i);
+                                    favorite.setAttribute('onclick', 'saveFav(' + i +')');
+                                    issueItem.appendChild(favorite);
+
                                     var issueImage = document.createElement('img');
                                     issueImage.className = 'the-img'
                                     
@@ -68,7 +77,80 @@ fetch(url).then(function (response) {
                                     resultEl.appendChild(issueImage);
                                     issueItem.appendChild(resultEl);
                                     searchResults.appendChild(issueItem);
+                                    issueItem.addEventListener('click', function() {
+                                        // add info needed to Google Books API function
+                                        var passToNextPage = [issueResults.results.volume.name, issueResults.results.issue_number];
+                                        localStorage.setItem('comicDets',JSON.stringify(passToNextPage));
 
-                            
+                                        // go to books page
+                                        location.replace('GooglebooksAPI.html');
+                                    })
+
+            //                         // Adds button functionality to each movie button
+            // for(let i = 0; i < searchResults.children.length; i++) {
+            //     (function (){
+            //         searchResults.children[i].addEventListener('click', function() {
+            //             localStorage.setItem("tempUrl", movieShowDetails.results[i].api_detail_url);
+
+            //             location.replace('comics_list.html');
+            //             // getMovieIssues(movieShowDetails.results[i].api_detail_url);
+            //         }, false);
+            //     }())
+            
+            // }
+
+                                    // check ls to see if any comics are currently faved and update checkbox
+                                    if(favedComics != null) {
+                                        if(favedComics.includes(issueResults.results.image.original_url)) {
+                                            favorite.checked = true;
+                                        }
+                                    }
 })}})})}})}})}})
 
+function saveFav(i) {
+    var checkbox = document.getElementById('fav' + i);
+    var checkboxes = document.getElementsByClassName('favorite');
+    var favoritesList = JSON.parse(localStorage.getItem('favorites'));
+    var tempList = [];
+
+    if(checkbox.checked) {
+        // check if ls has items
+        if(favoritesList != null){
+            // check if not in ls
+            if(!(favoritesList.includes(checkbox.getAttribute('data-img-url')))) {
+                favoritesList.push(checkbox.getAttribute('data-img-url'));
+                localStorage.setItem('favorites', JSON.stringify(favoritesList));
+            }
+        }
+        // ls has no items
+        else {
+            tempList.push(checkbox.getAttribute('data-img-url'));
+            localStorage.setItem('favorites', JSON.stringify(tempList));
+        }
+        // check if others match and check all others too
+        for(let i = 0; i < checkboxes.length; i++) {
+            if(checkboxes[i].getAttribute('data-img-url') === checkbox.getAttribute('data-img-url')) {
+                checkboxes[i].checked = true;
+            }
+        }
+    }
+
+    else {
+        if(favoritesList != null){
+            // check if in ls
+            if(favoritesList.includes(checkbox.getAttribute('data-img-url'))) {
+                var index = favoritesList.indexOf(checkbox.getAttribute('data-img-url'));
+                if(index > -1){
+                    favoritesList.splice(index, 1);
+                    localStorage.setItem('favorites', JSON.stringify(favoritesList));
+                }
+            }
+            // check for others match and uncheck all others too
+            for(let i = 0; i < checkboxes.length; i++) {
+                if(checkboxes[i].getAttribute('data-img-url') === checkbox.getAttribute('data-img-url')) {
+                    checkboxes[i].checked = false;
+                }
+            }
+        }
+    }
+}
