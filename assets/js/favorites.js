@@ -11,13 +11,15 @@ if(favoritesList != null) {
         const bookElement = document.createElement('div');
         bookElement.className = 'result-item';
         bookElement.innerHTML = favoritesList[i];
-        var idNum = bookElement.children[0].id.slice(3);
-        bookElement.setAttribute('id', 'issue' + idNum);
+        // var idNum = bookElement.children[0].id.slice(3);
+        bookElement.setAttribute('id', 'issue' + i);
         favResults.appendChild(bookElement);
 
-        var favorite = document.getElementById('fav' + idNum);
+        var favorite = document.getElementById('fav' + i);
         favorite.checked = true;
     }
+
+    
 }
 else {
     // display default

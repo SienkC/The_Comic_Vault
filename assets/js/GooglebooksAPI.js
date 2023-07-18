@@ -73,7 +73,15 @@ fetch(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(search
           // check if ls has items
           if(favoritesList != null){
               // check if not in ls
-              if(!(favoritesList.includes(comicsDetails[i].innerHTML))) {
+              var tempVal = false;
+              for(let k = 0; k < favoritesList.length; k++){
+                var tempDesc = comicsDetails[i].innerHTML.split("<p>");
+                var tempTitle = comicsDetails[i].innerHTML.split("h3");
+                if((favoritesList[k].includes(tempDesc[2]))  && favoritesList[k].includes(tempTitle[1])){
+                  tempVal = true;
+                }
+              }
+              if(!(tempVal)) {
                   favoritesList.push(comicsDetails[i].innerHTML);
                   localStorage.setItem('favorites', JSON.stringify(favoritesList));
               }
@@ -94,7 +102,15 @@ fetch(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(search
       else {
           if(favoritesList != null){
               // check if in ls
-              if(favoritesList.includes(comicsDetails[i].innerHTML)) {
+              var tempVal = false;
+              for(let k = 0; k < favoritesList.length; k++){
+                var tempDesc = comicsDetails[i].innerHTML.split("<p>");
+                var tempTitle = comicsDetails[i].innerHTML.split("h3");
+                if((favoritesList[k].includes(tempDesc[2])) && favoritesList[k].includes(tempTitle[1])){
+                  tempVal = true;
+                }
+              }
+              if(tempVal) {
                   var index = favoritesList.indexOf(comicsDetails[i].innerHTML);
                   if(index > -1){
                       favoritesList.splice(index, 1);
@@ -102,8 +118,12 @@ fetch(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(search
                   }
               }
               // check for others match and uncheck all others too
+              var currentDesc = comicsDetails[i].innerHTML.split("<p>");
+              var currentTitle = comicsDetails[i].innerHTML.split("h3");
               for(let j = 0; j < checkboxes.length; j++) {
-                  if(comicsDetails[j].innerHTML === comicsDetails[i].innerHTML) {
+                tempDesc = comicsDetails[j].innerHTML.split("<p>");
+                tempTitle = comicsDetails[j].innerHTML.split("h3")
+                  if(tempDesc[2] === currentDesc[2] && tempTitle[1] === currentTitle[1]) {
                       checkboxes[j].checked = false;
                   }
               }
