@@ -29,6 +29,7 @@ fetch(url).then(function (response) {
             searchResults.appendChild(desc);
 
             var picture = document.createElement('img');
+            picture.className = 'result-content-img';
             picture.setAttribute('src', charDetails.results.image.original_url);
             searchResults.appendChild(picture);
 
