@@ -55,8 +55,66 @@ fetch(url).then(function (response) {
                         fetch(issueUrl).then(function (response) {
                             if(response.ok) {
                                 response.json().then(function (issueResults) {
+                                    var favorite = document.createElement('input');
+                                    favorite.setAttribute('type', 'checkbox');
+                                    favorite.setAttribute('class', 'favorite');
+                                    favorite.setAttribute('data-img-url', issueResults.results.image.original_url)
+                                    favorite.setAttribute('onclick', 'saveFav()');
+                                    issueItem.appendChild(favorite);
+
                                     var issueImage = document.createElement('img');
                                     issueImage.setAttribute('src', issueResults.results.image.original_url);
                                     issueItem.appendChild(issueImage);
                                     searchResults.appendChild(issueItem);
 })}})})}})}})}})
+
+function saveFav() {
+
+    // test
+    console.log("checked!");
+
+    var checkboxes = document.getElementsByClassName('favorite');
+
+    for(let i = 0; i < checkboxes.length; i++) {
+        var favComic = [checkboxes[i].getAttribute('data-img-url')];
+        var favoritesList = JSON.parse(localStorage.getItem('favorites'));
+
+        // test
+        console.log(favComic);
+
+        if(checkboxes[i].checked) {
+            // check if local storage is not empty
+            if(favoritesList !== null) {
+                // check if issue is not already in favs
+                if(!(favoritesList.includes(checkboxes[i].getAttribute('data-img-url')))) {
+                    // add to local storage
+                    favoritesList = favoritesList.concat(favComic);
+                    
+                    // test
+                    console.log(favoritesList);
+                    localStorage.setItem('favorites', JSON.stringify(favoritesList));
+                }
+            }
+            //  if local storage is empty
+            else {
+                // create item in local storage to store favs
+                localStorage.setItem('favorites', JSON.stringify(favComic));
+            }
+        }
+        else {
+            
+        }        
+    }
+
+    
+
+    
+
+    // if(JSON.parse(localStorage.getItem("cities")) !== null){
+    //     cities = cities.concat(pastCities);
+    // }
+
+    // // add on new city info
+    // cities.push(saveCity);
+    // localStorage.setItem("cities", JSON.stringify(cities));
+}
