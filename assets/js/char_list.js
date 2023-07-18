@@ -26,6 +26,7 @@ fetch(url).then(function (response) {
 
             for(let i = 0; i < chars.results.length; i++) {
                 var charItem = document.createElement('button');
+                charItem.className = 'page-button';
                 if(chars.results[i].real_name) {
                     charItem.textContent = chars.results[i].name + " A.K.A. " + chars.results[i].real_name;
                 }
@@ -34,8 +35,14 @@ fetch(url).then(function (response) {
                 }
             
                 var image = document.createElement('img');
+                image.className = 'the-img';
                 image.setAttribute('src', chars.results[i].image.original_url);
-                charItem.appendChild(image);
+
+                var resultEl = document.createElement('div');
+                resultEl.className = 'result-content';
+
+                resultEl.appendChild(image);
+                charItem.appendChild(resultEl);
                 searchResults.appendChild(charItem);
             }
 

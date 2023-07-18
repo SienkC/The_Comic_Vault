@@ -60,7 +60,9 @@ var images = [
   'batman-1.jpg', 
   'spiderman-1.jpg', 
   'superman-1.jpeg', 
+  'batman-2.jpg',
   'the-dc-gang.jpg',
+  'wonderwoman-2.jpg',
   'thor-1.jpg',
   ];
   

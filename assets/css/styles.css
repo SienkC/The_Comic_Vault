@@ -1,13 +1,14 @@
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-}
 
 h1 {
     font-size: 24px;
     margin-bottom: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
 }
 
 .search-container {
@@ -31,37 +32,6 @@ h1 {
     left:0;
     background-size: cover;
   }
-  
-  .bubble--highlight {
-    background: url('data:image/svg+xml;utf8,<svg width="100" height="100" transform="rotate(25)" opacity="0.8" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g  fill="%23d68810"><circle cx="25" cy="25" r="12.5"/><circle cx="75" cy="75" r="12.5"/><circle cx="75" cy="25" r="12.5"/><circle cx="25" cy="75" r="12.5"/></g></svg>'),
-      #ffcd28;
-    background-size: 13px, 100%;
-    font-weight: 700;
-  }
-  /* for the highlight container always add an exclamation point */
-  .bubble--highlight:after {
-    content: "!";
-  }
-
-.bubble {
-  border-radius: 5px;
-  max-width: 500px;
-  /* give ample whitespace around and inside of the container */
-  margin: 2rem 0;
-  padding: 0.2rem 1.25rem;
-  text-align: center;
-  font-family: "rock salt", cursive;
-  text-transform: uppercase;
-  font-size: 24px;
-  letter-spacing: 0.2rem;
-  background: url('data:image/svg+xml;utf8,<svg width="100" height="100" transform="rotate(25)" opacity="0.3" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g  fill="%23250E17"><circle cx="25" cy="25" r="12.5"/><circle cx="75" cy="75" r="12.5"/><circle cx="75" cy="25" r="12.5"/><circle cx="25" cy="75" r="12.5"/></g></svg>'),
-    #fff;
-  background-size: 12px, 100%;
-  /* solid border */
-  border: 2px solid #000;
-  /* position relative for the :before pseudo element */
-  position: relative;
-}
 
 #search-input {
     width: 70%;
@@ -116,6 +86,80 @@ h1 {
 }
 
 #search-results {
-    text-align: left;
+    text-align: center;
     margin-top: 20px;
+}
+
+#go-back{
+  transform: rotate(-3deg);
+    padding: 10px 20px;
+    font-size: 12px;
+    border-radius: 5px;
+    font-family: "rock salt", cursive;
+    font-size: 14px;
+    background:url('data:image/svg+xml;utf8,<svg width="100" height="100" transform="rotate(25)" opacity="0.8" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g  fill="%23d68810"><circle cx="25" cy="25" r="12.5"/><circle cx="75" cy="75" r="12.5"/><circle cx="75" cy="25" r="12.5"/><circle cx="25" cy="75" r="12.5"/></g></svg>'),
+    #ffcd28;
+    background-size: 13px, 100%;
+    border:1px solid #222;
+    box-shadow:3px 3px 0 #222;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+#search-name{
+  font-family: "rock salt", cursive;
+  font-weight: 800;
+}
+
+.result-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.result-content {
+  width: 300px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.result-content img {
+ max-width: 100%;
+ height: auto;
+ 
+}
+
+.the-img {
+  box-shadow:5px 5px 0 #222;
+}
+
+.page-button{
+  background: url('data:image/svg+xml;utf8,<svg width="100" height="100" transform="rotate(25)" opacity="0.3" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g  fill="%23250E17"><circle cx="25" cy="25" r="12.5"/><circle cx="75" cy="75" r="12.5"/><circle cx="75" cy="25" r="12.5"/><circle cx="25" cy="75" r="12.5"/></g></svg>'),
+    #ffffff;
+  background-size: 12px, 100%;
+  border:1px solid #222;
+  box-shadow:3px 3px 0 #222;
+  margin: 10px;
+  border-radius: 5px;
+  font-family: "rock salt", cursive;
+}
+
+#page-title {
+  font-family: "rock salt", cursive;
+  color:#ffcd28;
+}
+
+.wrapper-movie {
+  background-image: url('../images/venom-1.jpg');
+  background-size: 100%, auto;
+}
+
+.wrapper-char {
+  background-image: url('../images/hulk-1.jpg');
+  background-size: 100%, auto;
+}
+
+.wrapper-comics{
+  background-image: url('../images/batman-5.jpg');
+  background-size: 100%, auto;
 }
