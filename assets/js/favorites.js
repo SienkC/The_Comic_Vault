@@ -8,32 +8,27 @@ if(favoritesList != null) {
 
     // display favorite comics from local storage
     for(let i = 0; i < favoritesList.length; i++){
-        var issueItem = document.createElement('div');
-        issueItem.setAttribute('id', 'issue' + i);
+        const bookElement = document.createElement('div');
+        bookElement.className = 'result-item';
+        bookElement.innerHTML = favoritesList[i];
+        // var idNum = bookElement.children[0].id.slice(3);
+        bookElement.setAttribute('id', 'issue' + i);
+        favResults.appendChild(bookElement);
 
-        var favorite = document.createElement('input');
-        favorite.setAttribute('type', 'checkbox');
-        favorite.setAttribute('class', 'favorite');
+        // fix ids for all checks and checkfunctions
+        var favorite = bookElement.children[0];
         favorite.setAttribute('id', 'fav' + i);
-        favorite.setAttribute('data-img-url', favoritesList[i]);
-        favorite.setAttribute('onclick', 'removeFav(' + i +')');
-        issueItem.appendChild(favorite);
-
-
-        var issueImage = document.createElement('img');
-        issueImage.setAttribute('src', favoritesList[i]);
-        issueItem.appendChild(issueImage);
-        favResults.appendChild(issueItem);
-
-        // all are checked since this is favorites section
+        favorite.setAttribute('onclick', 'saveFav(' + i + ')')
         favorite.checked = true;
     }
+
+
 }
 else {
     // display default
 }
 
-function removeFav(i){
+function saveFav(i){
     var checkbox = document.getElementById('fav' + i);
     var favsSaved = JSON.parse(localStorage.getItem("favorites"));
     var currentIssue = document.getElementById('issue' + i);
@@ -41,7 +36,19 @@ function removeFav(i){
     // unchecking box
     if(!(checkbox.checked)){
         // remove from ls
-        var index = favsSaved.indexOf(checkbox.getAttribute('data-img-url'));
+
+        // get matching desc and title
+        var currentTitle = currentIssue.innerHTML.split("h3");
+        var currentDesc = currentIssue.innerHTML.split("<p>");
+        // var tempVar = false;
+        var index = -1;
+
+        for(let i = 0; i < favsSaved.length; i++) {
+            if(favsSaved[i].includes(currentDesc[2]) && favsSaved[i].includes(currentTitle[1])) {
+                index = i;
+            }
+        }
+
         if(index > -1){
             favsSaved.splice(index, 1);
             localStorage.setItem('favorites', JSON.stringify(favsSaved));
