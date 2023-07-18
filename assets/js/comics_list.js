@@ -4,6 +4,7 @@ const directions = document.getElementById('directions');
 const searchName = document.getElementById('search-name');
 
 var startUrl = localStorage.getItem('tempUrl');
+var favedComics = JSON.parse(localStorage.getItem('favorites'));
 
 var url = "https://floating-headland-95050.herokuapp.com/" + startUrl + "?api_key=871377ac063cfca6e414991a01d6b3fdfce67591&format=json";
 
@@ -67,6 +68,13 @@ fetch(url).then(function (response) {
                                     issueImage.setAttribute('src', issueResults.results.image.original_url);
                                     issueItem.appendChild(issueImage);
                                     searchResults.appendChild(issueItem);
+
+                                    // check ls to see if any comics are currently faved and update checkbox
+                                    if(favedComics != null) {
+                                        if(favedComics.includes(issueResults.results.image.original_url)) {
+                                            favorite.checked = true;
+                                        }
+                                    }
 })}})})}})}})}})
 
 function saveFav(i) {
