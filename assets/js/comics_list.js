@@ -50,8 +50,10 @@ fetch(url).then(function (response) {
 
                         // create button for each issue listing the character that the issue is tied to
                         var issueItem = document.createElement('button');
-                        issueItem.textContent = "First appearance of " + charResults.results.name;
+                        issueItem.className = 'page-button';
 
+                       var firstIssueTitle = "First appearance of " + charResults.results.name;
+                        issueItem.innerHTML = (firstIssueTitle);
                         // call api for character's first issue
                         fetch(issueUrl).then(function (response) {
                             if(response.ok) {
@@ -65,10 +67,16 @@ fetch(url).then(function (response) {
                                     issueItem.appendChild(favorite);
 
                                     var issueImage = document.createElement('img');
+                                    issueImage.className = 'the-img'
+                                    
                                     issueImage.setAttribute('src', issueResults.results.image.original_url);
-                                    issueItem.appendChild(issueImage);
-                                    searchResults.appendChild(issueItem);
+                                    
+                                    var resultEl=document.createElement('div');
+                                    resultEl.className = 'result-content';
 
+                                    resultEl.appendChild(issueImage);
+                                    issueItem.appendChild(resultEl);
+                                    searchResults.appendChild(issueItem);
                                     issueItem.addEventListener('click', function() {
                                         // add info needed to Google Books API function
                                         var passToNextPage = [issueResults.results.volume.name, issueResults.results.issue_number];
