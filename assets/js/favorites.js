@@ -15,11 +15,14 @@ if(favoritesList != null) {
         bookElement.setAttribute('id', 'issue' + i);
         favResults.appendChild(bookElement);
 
-        var favorite = document.getElementById('fav' + i);
+        // fix ids for all checks and checkfunctions
+        var favorite = bookElement.children[0];
+        favorite.setAttribute('id', 'fav' + i);
+        favorite.setAttribute('onclick', 'saveFav(' + i + ')')
         favorite.checked = true;
     }
 
-    
+
 }
 else {
     // display default
@@ -33,7 +36,18 @@ function saveFav(i){
     // unchecking box
     if(!(checkbox.checked)){
         // remove from ls
-        var index = favsSaved.indexOf(currentIssue.innerHTML);
+
+        // get matching desc and title
+        var currentTitle = currentIssue.innerHTML.split("h3");
+        var currentDesc = currentIssue.innerHTML.split("<p>");
+        // var tempVar = false;
+        var index = -1;
+
+        for(let i = 0; i < favsSaved.length; i++) {
+            if(favsSaved[i].includes(currentDesc[2]) && favsSaved[i].includes(currentTitle[1])) {
+                index = i;
+            }
+        }
 
         if(index > -1){
             favsSaved.splice(index, 1);
