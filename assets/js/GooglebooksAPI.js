@@ -1,6 +1,7 @@
 // get info from ls
 const comicDets = JSON.parse(localStorage.getItem('comicDets'));
 const favsList = JSON.parse(localStorage.getItem('favorites'));
+var visited = JSON.parse(localStorage.getItem("visitedIssues"));
 
 const searchInput = comicDets[0] + "#" + comicDets[1];
 const resultsContainer = document.getElementById('resultsContainer');
@@ -51,9 +52,23 @@ fetch(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(search
               favs[i].checked = true;
             }
           }
+          // add info for intro.js
+          if(i == 0){
+            resultsContainer.children[i].setAttribute('data-intro', 'This is how a single comic will appear.');
+            favs[i].setAttribute('data-intro', 'Click here to save the comic to your favorites or unclick it to remove it from your favorites.');
+          }
         }
       } else {
         resultsContainer.innerHTML = 'No results found.';
+      }
+
+      // if user has never been to this page, intro will run
+      if(visited === null) {
+        // save that they've been here in local storage
+        localStorage.setItem("visitedIssues", JSON.stringify(true));
+
+        // run intro.js
+        introJs().start();
       }
     })
     .catch(error => {
@@ -130,3 +145,4 @@ fetch(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(search
           }
       }
   }
+
