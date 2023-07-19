@@ -9,7 +9,7 @@ if(favoritesList != null) {
     // display favorite comics from local storage
     for(let i = 0; i < favoritesList.length; i++){
         const bookElement = document.createElement('div');
-        bookElement.className = 'result-item';
+        bookElement.className = 'result-fav-item';
         bookElement.innerHTML = favoritesList[i];
         // var idNum = bookElement.children[0].id.slice(3);
         bookElement.setAttribute('id', 'issue' + i);
