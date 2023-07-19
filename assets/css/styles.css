@@ -60,6 +60,7 @@ margin: 10px;
   font-family: "rock salt", cursive;
   font-weight: 900;
   padding: 5px;
+  cursor: pointer;
 }
 
 .wrapper-movie {
@@ -159,6 +160,7 @@ transform: rotate(2deg);
   box-shadow:3px 3px 0 #222;
   margin-left: 20px;
   margin-top: 5px;
+  cursor: pointer;
 }
 
 #search-button {
@@ -173,6 +175,7 @@ transform: rotate(2deg);
   background-size: 13px, 100%;
   border:1px solid #222;
   box-shadow:3px 3px 0 #222;
+  cursor: pointer;
 }
 
 #media-type{
@@ -183,6 +186,7 @@ border:1px solid #222;
 box-shadow:3px 3px 0 #222;
 font-family: "rock salt", cursive;
 transform: rotate(-2deg);
+cursor: pointer;
 
 }
 
@@ -212,6 +216,7 @@ transform: rotate(-3deg);
   box-shadow:3px 3px 0 #222;
   margin-left: 20px;
   margin-top: 5px;
+  cursor: pointer;
 }
 
 #search-name{
