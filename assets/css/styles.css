@@ -122,6 +122,11 @@ margin: 10px;
   box-shadow:3px 3px 0 #222;
   color: black;
   overflow: auto;
+  font-weight: 900;
+}
+
+.fav-page-title {
+  font-weight: 900;
 }
 
 #page-title {
@@ -211,7 +216,7 @@ transform: rotate(-3deg);
 
 #search-name{
 font-family: "rock salt", cursive;
-font-weight: 800;
+font-weight: 900;
 }
 
 #fav-results{
