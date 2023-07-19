@@ -1,6 +1,5 @@
 
 const searchResults = document.getElementById('search-results');
-const directions = document.getElementById('directions');
 const searchName = document.getElementById('search-name');
 
 var startUrl = localStorage.getItem('tempUrl');

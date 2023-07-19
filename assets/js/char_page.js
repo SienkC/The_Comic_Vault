@@ -34,7 +34,7 @@ fetch(url).then(function (response) {
             searchResults.appendChild(picture);
 
             var issueList = document.createElement('ul');
-            issueList.textContent = "Issues List";
+            issueList.textContent = "Here are some recommended comic issues";
 
             var issueLimit = 10;
 
