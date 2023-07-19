@@ -8,15 +8,16 @@
     rel="stylesheet">
 <!-- bulma -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-
+    <!-- intro.js css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.0.1/introjs.css" integrity="sha512-4OzqLjfh1aJa7M33b5+h0CSx0Q3i9Qaxlrr1T/Z+Vz+9zs5A7GM3T3MFKXoreghi3iDOSbkPMXiMBhFO7UBW/g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
 </head>
 
 <body>
-    <div class="wrapper"> <!--allows window to collapse and expand and keep image in correct view-->
-      <div class="bg-image"></div>
+    <div class="wrapper" data-title="Welcome to The Comic Vault!" data-intro="Search for a movie, TV show, or character and find comics for them!"> <!--allows window to collapse and expand and keep image in correct view-->
+        <div class="bg-image"></div>
         <div class="container-header has-text-left">
-            <a href="./favorites.html">
+            <a href="./favorites.html" data-intro="Any comics you save will be stored in your favorites page, but there wont be anything there yet.">
                 <button id="favorites-button">Favorites!</button>
             </a>
         </div>
@@ -30,14 +31,14 @@
                 <!-- </div> -->
                     <div class="level-item has-text-centered">
                     <!-- <div class="bubble"> -->
-                        <form class="search-container">
-                            <select id="media-type">
+                        <form class="search-container" data-intro="Here is where you can start your comic journey.">
+                            <select id="media-type" data-intro="Just select whether you are searching for a movie, a show, or a character">
                                 <option value="movies" id="movies">Movie</option>
                                 <option value="series_list">TV Show</option>
                                 <option value="char">Character</option>
                             </select>
-                            <input type="text" id="search-input" placeholder="Search..." />
-                            <button id="search-button">Search!</button>
+                            <input type="text" id="search-input" placeholder="Search..." data-intro="And type your search in here."/>
+                            <button id="search-button" data-intro="Click search and you're good to go!">Search!</button>
                         </form>
                     </div>
                 <!-- </div> -->
@@ -50,6 +51,8 @@
         </section>
         <footer>Data provided by <a href="https://comicvine.gamespot.com/api/">Comic Vine API</a></footer>
     </div>
+    <!-- intro.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.0.1/intro.js" integrity="sha512-734LxF+zW3axKnzuMhehjDCB6ZpgEpKUT//6lZ20TMIUCMrrlhiByP78+n7mOIj+X/Oqu87xxMprZ4Gi7L7Ilg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- jQuery -->
     <script
     src="https://code.jquery.com/jquery-3.7.0.min.js"
