@@ -228,21 +228,3 @@ font-weight: 900;
   display: flex;
   flex-wrap: wrap;
 }
-
-input[type="checkbox"] {
-  color: #ffcd28;
-  display: grid;
-  place-content: center;
-}
-
-input[type="checkbox"]::before {
-  content: "";
-  width: 1em;
-  height: 1em;
-  transform: scale(0);
-  box-shadow: inset 1em 1em #ffcd28;
-}
-
-input[type="checkbox"]:checked::before {
-  transform: scale(1);
-}
