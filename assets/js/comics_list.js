@@ -1,6 +1,5 @@
 
 const searchResults = document.getElementById('search-results');
-const directions = document.getElementById('directions');
 const searchName = document.getElementById('search-name');
 
 var startUrl = localStorage.getItem('tempUrl');
@@ -42,7 +41,7 @@ fetch(url).then(function (response) {
                         var issueItem = document.createElement('button');
                         issueItem.className = 'page-button';
 
-                       var firstIssueTitle = "First appearance of " + charResults.results.name;
+                        var firstIssueTitle = "First appearance of " + charResults.results.name;
                         issueItem.innerHTML = (firstIssueTitle);
                         // call api for character's first issue
                         fetch(issueUrl).then(function (response) {

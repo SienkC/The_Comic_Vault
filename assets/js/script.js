@@ -5,7 +5,9 @@ const data = [
     { title: 'Movie 1', category: 'Movies' },
     { title: 'Movie 2', category: 'Movies' }
   ];
-  
+
+var visited = JSON.parse(localStorage.getItem("visitedHome"));
+
 // Get references to HTML elements
 const searchInput = document.getElementById('search-input');
 const searchButton = document.getElementById('search-button');
@@ -86,4 +88,11 @@ var images = [
   
       });
   
-  
+// if user has never been to this page, intro will run
+if(visited === null) {
+  // save that they've been here in local storage
+  localStorage.setItem("visitedHome", JSON.stringify(true));
+
+  // run intro.js
+  introJs().start();
+}
