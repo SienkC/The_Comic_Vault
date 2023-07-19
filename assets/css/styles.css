@@ -33,11 +33,6 @@ h1 {
     background-size: cover;
   }
 
-.result-box {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .result-content {
   width: 300px;
   margin: 10px;
@@ -99,6 +94,22 @@ margin: 10px;
   background-size: 100%, auto;
 }
 
+.result-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.result-item {
+  width: 300px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.result-item img {
+  max-width: 100%;
+  height: auto;
+}
 
 #page-title {
   font-family: "rock salt", cursive;
@@ -158,9 +169,16 @@ transform: rotate(-2deg);
 }
 
 #search-results {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+#search-char-page-results {
   text-align: center;
   margin-top: 20px;
 }
+
 
 #go-back{
 transform: rotate(-3deg);

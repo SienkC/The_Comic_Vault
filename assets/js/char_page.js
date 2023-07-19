@@ -1,4 +1,4 @@
-const searchResults = document.getElementById('search-results');
+const searchResults = document.getElementById('search-char-page-results');
 
 
 var startUrl = localStorage.getItem('tempUrl');
