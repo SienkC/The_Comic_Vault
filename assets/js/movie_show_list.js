@@ -5,9 +5,6 @@ const searchName = document.getElementById('search-name');
 var url = localStorage.getItem('tempUrl');
 var nameGiven = url.split('name:')[1];
 
-// test
-console.log(url);
-
 searchName.textContent = "Showing results for: " + nameGiven;
 
 if(url.includes('movies')){
@@ -20,12 +17,8 @@ else {
 searchResults.textContent = "Results may take a few seconds to load...";
 
 fetch(url).then(function (response) {
-    // test
-    console.log(response);
     if (response.ok) {
         response.json().then(function (movieShowDetails) {
-            // test
-            console.log(movieShowDetails);
 
             // Clear results
             searchResults.innerHTML = '';
@@ -48,12 +41,10 @@ fetch(url).then(function (response) {
                 // add image of each movie/show
                 var image = document.createElement('img');
                 image.className = 'the-img';
-                // image.className = 'result-content';
                 image.setAttribute('src', movieShowDetails.results[i].image.original_url);
                 
                 var resultEl = document.createElement('div');
                 resultEl.className = 'result-content';
-                //resultEl.innerHTML = "<p><h2 class= movie-title>" + movieShowDetails.results[i].name + "</p></h1>";
 
                 resultEl.appendChild(image);
                 resultItem.appendChild(resultEl);
@@ -67,7 +58,6 @@ fetch(url).then(function (response) {
                         localStorage.setItem("tempUrl", movieShowDetails.results[i].api_detail_url);
 
                         location.replace('comics_list.html');
-                        // getMovieIssues(movieShowDetails.results[i].api_detail_url);
                     }, false);
                 }())
             
