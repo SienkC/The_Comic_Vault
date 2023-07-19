@@ -2,24 +2,38 @@
 <html>
 
 <head>
-    <title>Comic Book and Movies Search</title>
+    <title>The Comic Vault</title>
+
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Roboto:ital@1&family=Rock+Salt&display=swap" 
+    rel="stylesheet">
+    
+    <!-- bulma -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
 </head>
 
 <body>
-    <header>
+    <div class="wrapper-fav">
+        <section class="hero is-fullheight">  
+          <header>
         <a href="./index.html">
-            <button>Go Back to Search</button>
+            <button id="go-back">Go Back to Search</button>
         </a>
     </header>
-    <div class="container">
+    <div class="container" id="page-title">
         <h1>Your Favorites</h1>
         <div id="fav-results">
             Your favorite comic issues will appear here when you save them!
             <!-- Favorite comics will be displayed here -->
         </div>
     </div>
-    <footer><a href="https://www.google.com/"><img src="./assets/images/poweredbygoogle.png"></img></a></footer>
+
+    </section>
+      <footer><a href="https://www.google.com/"><img src="./assets/images/poweredbygoogle.png"></img></a></footer>
+</div>
+
     <script src="./assets/js/favorites.js"></script>
 </body>
 
