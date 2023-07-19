@@ -46,7 +46,29 @@ fetch(url).then(function (response) {
                 if(!(charDetails.results.issue_credits[i].name == null || charDetails.results.issue_credits[i].name == "")) {
                     var issueName = document.createElement('li');
                     issueName.textContent = charDetails.results.issue_credits[i].name;
-                    issueList.appendChild(issueName);
+
+                    var link = document.createElement('button');
+
+                    link.addEventListener('click', function() {
+                        // add info needed to Google Books API function
+                        var clicked = "https://floating-headland-95050.herokuapp.com/" + charDetails.results.issue_credits[i].api_detail_url + "?api_key=871377ac063cfca6e414991a01d6b3fdfce67591&format=json";
+                        fetch(clicked).then(function (response) {
+                            if(response.ok) {
+                                response.json().then(function (issueDets) {
+
+                                    var passToNextPage = [issueDets.results.volume.name, issueDets.results.issue_number];
+                                    localStorage.setItem('comicDets',JSON.stringify(passToNextPage));
+
+                                    // go to books page
+                                    location.replace('GooglebooksAPI.html');
+                                })
+                            }
+                        })
+                        
+                    })
+                    link.appendChild(issueName);
+                    issueList.appendChild(link);
+                    // issueList.appendChild(issueName);
                 }
             }
 
