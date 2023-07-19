@@ -33,84 +33,6 @@ h1 {
     background-size: cover;
   }
 
-#search-input {
-    width: 70%;
-    padding: 10px;
-    font-size: 20px;
-    background:#ddd;
-    border:1px solid #222;
-    box-shadow:3px 3px 0 #222;
-    /* margin: 5px; */
-    border-radius: 5px;
-}
-
-#favorites-button {
-  transform: rotate(2deg);
-    padding: 10px 20px;
-    font-size: 12px;
-    border-radius: 5px;
-    font-family: "rock salt", cursive;
-    font-size: 14px;
-    background:url('data:image/svg+xml;utf8,<svg width="100" height="100" transform="rotate(25)" opacity="0.8" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g  fill="%23d68810"><circle cx="25" cy="25" r="12.5"/><circle cx="75" cy="75" r="12.5"/><circle cx="75" cy="25" r="12.5"/><circle cx="25" cy="75" r="12.5"/></g></svg>'),
-    #ffcd28;
-    background-size: 13px, 100%;
-    border:1px solid #222;
-    box-shadow:3px 3px 0 #222;
-    margin-left: 20px;
-    margin-top: 5px;
-}
-
-#search-button {
-    transform: rotate(2deg);
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    font-family: "rock salt", cursive;
-    font-size: 14px;
-    background:url('data:image/svg+xml;utf8,<svg width="100" height="100" transform="rotate(25)" opacity="0.8" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g  fill="%23d68810"><circle cx="25" cy="25" r="12.5"/><circle cx="75" cy="75" r="12.5"/><circle cx="75" cy="25" r="12.5"/><circle cx="25" cy="75" r="12.5"/></g></svg>'),
-    #ffcd28;
-    background-size: 13px, 100%;
-    border:1px solid #222;
-    box-shadow:3px 3px 0 #222;
-}
-
-#media-type{
-  background: url('data:image/svg+xml;utf8,<svg width="100" height="100" transform="rotate(25)" opacity="0.3" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g  fill="%23250E17"><circle cx="25" cy="25" r="12.5"/><circle cx="75" cy="75" r="12.5"/><circle cx="75" cy="25" r="12.5"/><circle cx="25" cy="75" r="12.5"/></g></svg>'),
-    #fff;
-  background-size: 12px, 100%;
-  border:1px solid #222;
-  box-shadow:3px 3px 0 #222;
-  font-family: "rock salt", cursive;
-  transform: rotate(-2deg);
-
-}
-
-#search-results {
-    text-align: center;
-    margin-top: 20px;
-}
-
-#go-back{
-  transform: rotate(-3deg);
-    padding: 10px 20px;
-    font-size: 12px;
-    border-radius: 5px;
-    font-family: "rock salt", cursive;
-    font-size: 14px;
-    background:url('data:image/svg+xml;utf8,<svg width="100" height="100" transform="rotate(25)" opacity="0.8" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g  fill="%23d68810"><circle cx="25" cy="25" r="12.5"/><circle cx="75" cy="75" r="12.5"/><circle cx="75" cy="25" r="12.5"/><circle cx="25" cy="75" r="12.5"/></g></svg>'),
-    #ffcd28;
-    background-size: 13px, 100%;
-    border:1px solid #222;
-    box-shadow:3px 3px 0 #222;
-    margin-left: 20px;
-    margin-top: 5px;
-}
-
-#search-name{
-  font-family: "rock salt", cursive;
-  font-weight: 800;
-}
-
 .result-box {
   display: flex;
   flex-wrap: wrap;
@@ -123,11 +45,9 @@ h1 {
   border-radius: 5px;
 }
 
-
 .result-content-img {
 border: 3px solid white;
 margin: 10px;
- 
 }
 
 .the-img {
@@ -143,15 +63,12 @@ margin: 10px;
   margin: 10px;
   border-radius: 5px;
   font-family: "rock salt", cursive;
-}
-
-#page-title {
-  font-family: "rock salt", cursive;
-  color:#ffcd28;
+  font-weight: 900;
+  padding: 5px;
 }
 
 .wrapper-movie {
-  background-image: url('../images/venom-1.jpg');
+  background-image: url('../images/captainam.jpg');
   background-size: 100%, auto;
 }
 
@@ -161,7 +78,7 @@ margin: 10px;
 }
 
 .wrapper-comics{
-  background-image: url('../images/batman-5.jpg');
+  background-image: url('../images/spiderman-8.jpg');
   background-size: 100%, auto;
 }
 
@@ -170,3 +87,98 @@ margin: 10px;
   background-size: 100%, auto;
 }
 
+.wrapper-page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.wrapper-fav{
+  background-image: url('../images/venom-1.jpg');
+  background-size: 100%, auto;
+}
+
+
+#page-title {
+  font-family: "rock salt", cursive;
+  color:#ffcd28;
+}
+
+#search-input {
+  width: 70%;
+  padding: 10px;
+  font-size: 20px;
+  background:#ddd;
+  border:1px solid #222;
+  box-shadow:3px 3px 0 #222;
+  /* margin: 5px; */
+  border-radius: 5px;
+}
+
+#favorites-button {
+transform: rotate(2deg);
+  padding: 10px 20px;
+  font-size: 12px;
+  border-radius: 5px;
+  font-family: "rock salt", cursive;
+  font-size: 14px;
+  background:url('data:image/svg+xml;utf8,<svg width="100" height="100" transform="rotate(25)" opacity="0.8" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g  fill="%23d68810"><circle cx="25" cy="25" r="12.5"/><circle cx="75" cy="75" r="12.5"/><circle cx="75" cy="25" r="12.5"/><circle cx="25" cy="75" r="12.5"/></g></svg>'),
+  #ffcd28;
+  background-size: 13px, 100%;
+  border:1px solid #222;
+  box-shadow:3px 3px 0 #222;
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+#search-button {
+  transform: rotate(2deg);
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  font-family: "rock salt", cursive;
+  font-size: 14px;
+  background:url('data:image/svg+xml;utf8,<svg width="100" height="100" transform="rotate(25)" opacity="0.8" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g  fill="%23d68810"><circle cx="25" cy="25" r="12.5"/><circle cx="75" cy="75" r="12.5"/><circle cx="75" cy="25" r="12.5"/><circle cx="25" cy="75" r="12.5"/></g></svg>'),
+  #ffcd28;
+  background-size: 13px, 100%;
+  border:1px solid #222;
+  box-shadow:3px 3px 0 #222;
+}
+
+#media-type{
+background: url('data:image/svg+xml;utf8,<svg width="100" height="100" transform="rotate(25)" opacity="0.3" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g  fill="%23250E17"><circle cx="25" cy="25" r="12.5"/><circle cx="75" cy="75" r="12.5"/><circle cx="75" cy="25" r="12.5"/><circle cx="25" cy="75" r="12.5"/></g></svg>'),
+  #fff;
+background-size: 12px, 100%;
+border:1px solid #222;
+box-shadow:3px 3px 0 #222;
+font-family: "rock salt", cursive;
+transform: rotate(-2deg);
+
+}
+
+#search-results {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#go-back{
+transform: rotate(-3deg);
+  padding: 10px 20px;
+  font-size: 12px;
+  border-radius: 5px;
+  font-family: "rock salt", cursive;
+  font-size: 14px;
+  background:url('data:image/svg+xml;utf8,<svg width="100" height="100" transform="rotate(25)" opacity="0.8" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g  fill="%23d68810"><circle cx="25" cy="25" r="12.5"/><circle cx="75" cy="75" r="12.5"/><circle cx="75" cy="25" r="12.5"/><circle cx="25" cy="75" r="12.5"/></g></svg>'),
+  #ffcd28;
+  background-size: 13px, 100%;
+  border:1px solid #222;
+  box-shadow:3px 3px 0 #222;
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+#search-name{
+font-family: "rock salt", cursive;
+font-weight: 800;
+}
