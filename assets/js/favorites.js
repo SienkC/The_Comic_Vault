@@ -1,5 +1,5 @@
 const favResults = document.getElementById('fav-results');
-const backButton = document.getElementById('backbtn');
+const backButton = document.getElementById('go-back');
 var favoritesList = JSON.parse(localStorage.getItem("favorites"));
 var visited = JSON.parse(localStorage.getItem("visitedFavs"));
 
