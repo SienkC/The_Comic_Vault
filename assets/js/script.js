@@ -16,7 +16,6 @@ const mediaType = document.getElementById('media-type');
 
   
 // Event listener for search button click
-// searchButton.addEventListener('click', performSearch);
 searchButton.addEventListener('click', function(event) {
   event.preventDefault();
 
@@ -25,35 +24,22 @@ searchButton.addEventListener('click', function(event) {
 
   // Checks if search is not blank
   if(searchTerm){
-    // test
-    console.log(searchTerm);
 
     // seach for movie or tv show
     if(mediaType.value == "movies" || mediaType.value == "series_list"){
       var mediaSearchUrl = "https://floating-headland-95050.herokuapp.com/https://comicvine.gamespot.com/api/" + mediaType.value + "/?api_key=871377ac063cfca6e414991a01d6b3fdfce67591&format=json&filter=name:" + searchTerm;
 
-      // test
-      console.log(mediaSearchUrl);
-
       localStorage.setItem("tempUrl", mediaSearchUrl);
 
       location.replace('movie_show_list.html');
-
-      // movieShowDisplay(mediaSearchUrl);
     }
     // search for character
     else {
-      // TODO: Add character search
       var charSearchUrl = "https://floating-headland-95050.herokuapp.com/https://comicvine.gamespot.com/api/search/?api_key=871377ac063cfca6e414991a01d6b3fdfce67591&format=json&resources=character&query=" + searchTerm;
-
-      // test
-      console.log(charSearchUrl);
 
       localStorage.setItem("tempUrl", charSearchUrl);
 
       location.replace('char_list.html');
-
-      // charSelectDisplay(charSearchUrl);
     }
   }
 })

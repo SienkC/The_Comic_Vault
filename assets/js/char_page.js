@@ -11,9 +11,6 @@ fetch(url).then(function (response) {
     if(response.ok) {
         response.json().then(function(charDetails) {
 
-            // test
-            console.log(charDetails);
-
             searchResults.innerHTML = '';
 
             var title = document.createElement('h1');
@@ -73,7 +70,6 @@ fetch(url).then(function (response) {
                     link.appendChild(issueName);
                     issueNameHolder.appendChild(link);
                     issueList.appendChild(issueNameHolder);
-                    // issueList.appendChild(issueName);
                 }
             }
 

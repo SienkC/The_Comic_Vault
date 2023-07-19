@@ -44,8 +44,6 @@ function saveFav(i){
 
     // unchecking box
     if(!(checkbox.checked)){
-        // remove from ls
-
         // get matching desc and title
         var currentTitle = currentIssue.innerHTML.split("h3");
         var currentDesc = currentIssue.innerHTML.split("<p>");

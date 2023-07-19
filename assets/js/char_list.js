@@ -5,10 +5,6 @@ const searchName = document.getElementById('search-name');
 var url = localStorage.getItem('tempUrl');
 var nameGiven = url.split('query=')[1];
 
-// test
-console.log(url);
-console.log(nameGiven);
-
 searchName.textContent = "Showing results for: " + nameGiven;
 
 directions.textContent = "Please select your character";
@@ -18,9 +14,6 @@ searchResults.textContent = "Results may take a few seconds to load...";
 fetch(url).then(function (response) {
     if(response.ok) {
         response.json().then(function(chars) {
-
-            // test
-            console.log(chars);
 
             searchResults.innerHTML = '';
 
@@ -53,6 +46,5 @@ fetch(url).then(function (response) {
                     localStorage.setItem("tempUrl", chars.results[i].api_detail_url);
 
                     location.replace('char_page.html');
-                    // getCharInfo(chars.results[i].api_detail_url);
                 }, false);
             }())}})}})
