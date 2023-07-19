@@ -16,8 +16,17 @@ By integrating the Google Books API, The Comic Vault provides users with the abi
 **Target Audience**
 The Comic Vault caters to comic book enthusiasts, movie buffs, and TV series fans who are passionate about exploring the connections and crossovers between different forms of media. Whether you're a devoted comic reader, a fan of comic book adaptations, or someone interested in discovering new stories, The Comic Vault offers a comprehensive platform to satisfy your cravings.
 
-***Getting Started**
+**Getting Started**
 To get started with The Comic Vault, simply visit our website at [The Comic Vault](https://sienkc.github.io/The_Comic_Vault/index.html) Once there, you can begin exploring the vast universe of comic books, movies, and TV series. Our intuitive search functionality and well-organized categories will help you navigate through the content and discover exciting connections.
+
+**Screenshots of Pages**
+![Screenshot of Home Page](./assets/images/screenshotofhome.png)
+![Screenshot of Movie Result](./assets/images/screenshotofexamplemovieresults.png)
+![Screenshot of Comics from Selected Movie](./assets/images/screenshotofcomicspage.png)
+![Screenshot for Showing More Detailed Comic Descriptions](./assets/images/screenshotofcomicdetailspage.png)
+![Screenshot of Character Result](./assets/images/screenshotforcharactersearch.png)
+![Screenshot of Character Page](./assets/images/screenshotofcharacterpage.png)
+![Screenshot of Favorites Page](./assets/images/screenshotoffavorites.png)
 
 ***License***
 Licensed under [MIT](LICENSE)
